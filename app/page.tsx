@@ -11,7 +11,12 @@ import { useTranslation } from "react-i18next";
 
 export default function Home() {
   const { connected } = useWallet();
-  const { services, userData, addServiceStake, useService } = useApp();
+  const {
+    services,
+    userData,
+    addServiceStake,
+    useService: consumeService,
+  } = useApp();
   const { t } = useTranslation();
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [filterType, setFilterType] = useState<string>("all");
@@ -25,7 +30,7 @@ export default function Home() {
     setSelectedService(service);
   };
 
-  const handleUseService = () => {
+  const handleConsumeService = () => {
     if (!selectedService || !connected) return;
 
     if (
@@ -33,7 +38,7 @@ export default function Home() {
       selectedService.pricePerRequest
     ) {
       if (userData.totalRewards >= selectedService.pricePerRequest) {
-        useService(selectedService.id, selectedService.pricePerRequest);
+        consumeService(selectedService.id, selectedService.pricePerRequest);
         alert(
           t("marketplace.serviceUsedSuccess", {
             cost: selectedService.pricePerRequest,
@@ -222,7 +227,7 @@ export default function Home() {
             <div className="flex gap-3 pt-4">
               {selectedService.paymentType === "pay_per_use" && (
                 <Button
-                  onClick={handleUseService}
+                  onClick={handleConsumeService}
                   className="flex-1"
                   disabled={
                     !connected ||
