@@ -19,10 +19,10 @@ This creates a sustainable ecosystem where:
 ## 🌍 Multi-Language Support
 
 Stakelona supports **4 languages**:
-- 🇬🇧 **English** (Default)
-- 🇰🇿 **Kazakh** (Қазақша)
-- 🇷🇺 **Russian** (Русский)
-- 🇪🇸 **Spanish** (Español)
+- **English** (Default)
+- **Kazakh** (Қазақша)
+- **Russian** (Русский)
+- **Spanish** (Español)
 
 Switch languages using the language selector in the navigation bar. Your preference is automatically saved.
 
